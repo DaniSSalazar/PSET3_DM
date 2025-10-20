@@ -1,6 +1,7 @@
 Proyecto: Ingesta y modelado analítico del dataset NYC TLC Trips (2015–2025)
 Tecnología: Spark (Jupyter) + Snowflake
 Modelo: One Big Table (OBT) para consumo analítico
+Ejecución de los notebooks en orde (desde el 0 de descarga de archivos hasta el 5 de las preguntas de negocio)
 
 1. Arquitectura del Proyecto
 
