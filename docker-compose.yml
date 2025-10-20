@@ -1,0 +1,31 @@
+services:
+  pyspark-notebook:
+    image: jupyter/pyspark-notebook:latest
+    container_name: pyspark-notebook
+    ports:
+      - 4040:4040
+      - 8888:8888
+    volumes:
+      - ./work:/home/work
+    env_file:
+      - .env
+    environment:
+      - SPARK_LOCAL=0.0.0.0
+      - PYSPARK_PYTHON=python
+      - JUPYTER_TOKEN=datamining1234
+
+      # Variables Snowflake traídas desde .env automáticamente
+      - SF_ACCOUNT=${SF_ACCOUNT}
+      - SF_USER=${SF_USER}
+      - SF_PASSWORD=${SF_PASSWORD}
+      - SF_WAREHOUSE=${SF_WAREHOUSE}
+      - SF_ROLE=${SF_ROLE}
+      - SF_DATABASE=${SF_DATABASE}
+      - SF_SCHEMA=${SF_SCHEMA}
+
+    command: >
+      start-notebook.sh
+      --ServerApp.token=datamining1234
+      --ServerApp.password=''
+      --ServerApp.allow_origin='*'
+      --ServerApp.allow_remote_access=True
